@@ -1,65 +1,29 @@
-# src/recommend.py
+def get_recommendation(risk_level):
 
-import os
-import joblib
+    if risk_level == "Critical":
+        return {
+            "action": "Immediate Help",
+            "message": "Contact therapist immediately",
+            "resource": "Emergency hotline / Psychiatrist"
+        }
 
-from preprocess import clean_text
-from shared_features import build_features
+    elif risk_level == "High":
+        return {
+            "action": "Seek Help",
+            "message": "You should talk to a therapist",
+            "resource": "CBT / DBT therapist"
+        }
 
-# -----------------------------
-# MODEL PATH
-# -----------------------------
-MODEL_PATH = "../outputs/models/therapy_chat_model.pkl"
+    elif risk_level == "Medium":
+        return {
+            "action": "Monitor",
+            "message": "Practice mindfulness",
+            "resource": "Meditation / Journaling"
+        }
 
-# -----------------------------
-# LOAD MODEL
-# -----------------------------
-if not os.path.exists(MODEL_PATH):
-    raise FileNotFoundError("Model not found. Train your model first.")
-
-model = joblib.load(MODEL_PATH)
-
-tfidf = joblib.load("tfidf.pkl")
-bow = joblib.load("bow.pkl")
-
-print("Model loaded successfully.")
-
-# -----------------------------
-# EXPLANATION ENGINE
-# -----------------------------
-def explain(pred):
-    return {
-        "CBT": "Detected depressive or negative thought patterns.",
-        "DBT": "Detected emotional instability or distress signals.",
-        "Mindfulness-Based Therapy": "Detected anxiety/stress-related patterns.",
-        "No Therapy Needed": "No strong mental health risk detected."
-    }.get(pred, "No explanation available.")
-
-# -----------------------------
-# THERAPY PREDICTION
-# -----------------------------
-def recommend_therapy(text):
-    cleaned = clean_text(text)
-
-    features = build_features([cleaned], tfidf, bow)
-    prediction = model.predict(features)[0]
-
-    print("\n==============================")
-    print("INPUT:", text)
-    print("THERAPY:", prediction)
-    print("EXPLANATION:", explain(prediction))
-    print("==============================\n")
-
-# -----------------------------
-# CHAT LOOP
-# -----------------------------
-print("\nTherapy Recommender Chatbot")
-print("Type 'exit' to quit\n")
-
-while True:
-    user_input = input("User: ")
-
-    if user_input.lower() in ["exit", "quit"]:
-        break
-
-    recommend_therapy(user_input)
+    else:
+        return {
+            "action": "Healthy Routine",
+            "message": "You are stable",
+            "resource": "Exercise / Sleep well"
+        }

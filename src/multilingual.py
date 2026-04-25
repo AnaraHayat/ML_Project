@@ -60,7 +60,7 @@ def get_bert_embedding(texts, batch_size=16):
 # -----------------------------
 # LOAD DATA
 # -----------------------------
-df_en = pd.read_csv('../data/Suicide_Detection.csv').dropna().sample(5000, random_state=42)
+df_en = pd.read_csv('../../data/Suicide_Detection.csv').dropna().sample(5000, random_state=42)
 df_en['label'] = (df_en['class'] == 'suicide').astype(int)
 
 df_ur = pd.read_csv('../data/urdu_translated_150.csv').dropna()

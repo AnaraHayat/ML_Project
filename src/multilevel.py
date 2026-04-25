@@ -16,7 +16,7 @@ from features import get_hybrid_features
 # -----------------------------
 # FILE PATH
 # -----------------------------
-DATA_PATH = '../data/Suicide_Detection.csv'
+DATA_PATH = '../../data/Suicide_Detection.csv'
 
 
 # -----------------------------
