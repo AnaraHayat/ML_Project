@@ -1,11 +1,11 @@
-# MindGuard Pro AI - Suicide Ideation Detection System
+# MindGuard AI - Suicide Ideation Detection System
 
 A multilingual mental health crisis detection system using advanced machine learning to identify suicidal tendencies
 based on user input and clinical factors.
 
 ## Overview
 
-MindGuard Pro AI combines natural language processing (TF-IDF) with demographic/clinical machine learning to predict
+MindGuard AI combines natural language processing (TF-IDF) with demographic/clinical machine learning to predict
 suicide ideation risk. The system supports **English, Urdu, and Roman Urdu** through intelligent text preprocessing and
 provides risk assessment with clinical recommendations.
 
@@ -487,14 +487,11 @@ decisions.
 **Emergency Support:**
 If someone is in immediate danger, contact emergency services or call a suicide prevention hotline:
 
-- **USA:** National Suicide Prevention Lifeline: 988
-- **International:** https://findahelpline.com
-
 ---
 
 ## License & Attribution
 
-**Project:** MindGuard Pro AI
+**Project:** MindGuard AI
 **Type:** Educational/Research Tool
 **Created:** 2026
 
@@ -515,16 +512,6 @@ If someone is in immediate danger, contact emergency services or call a suicide 
 
 ---
 
-## Contact & Support
-
-For issues, questions, or contributions:
-
-1. Check troubleshooting section
-2. Review model training output logs
-3. Verify all dependencies installed (`pip list`)
-4. Test individual components (baseline.py, train_hybrid.py)
-
----
 
 **Last Updated:** April 29, 2026
 **Model Version:** 1.0 (TF-IDF + Soft-Voting Ensemble)
