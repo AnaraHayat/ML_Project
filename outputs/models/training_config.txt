@@ -1,0 +1,49 @@
+MULTILINGUAL SUICIDE IDEATION DETECTION MODEL
+======================================================================
+
+MODEL ARCHITECTURE:
+----------------------------------------------------------------------
+Feature Engineering:
+  - TF-IDF Vectorization (unigrams + bigrams)
+  - Max features: 25,000
+  - Sublinear TF scaling enabled
+  - Min document frequency: 2
+  - Max document frequency: 0.95
+
+Ensemble Model:
+  - Voting Classifier (Soft voting)
+  - Estimator 1: Logistic Regression (weight=1)
+  - Estimator 2: Random Forest 100 trees (weight=2)
+  - Prediction: Average of probabilities
+
+MULTILINGUAL SUPPORT:
+----------------------------------------------------------------------
+  - English: Full NLTK preprocessing support
+  - Urdu: Character-aware tokenization
+  - Roman Urdu: Latin script Urdu support
+  - Language Detection: Automatic via Unicode ranges
+
+WEIGHTING STRATEGY (Pipeline):
+----------------------------------------------------------------------
+  - Text Model (TF-IDF + SVEM): 60% of combined score
+  - Demographic Model (Random Forest): 40% of combined score
+
+DATASET STATISTICS:
+----------------------------------------------------------------------
+  - Total samples: 30000
+  - Training samples: 24000
+  - Test samples: 6000
+  - Class distribution (train): {0: 12015, 1: 11985}
+  - Class distribution (test): {0: 3028, 1: 2972}
+
+PERFORMANCE METRICS:
+----------------------------------------------------------------------
+  - Accuracy:  0.9193
+  - Precision: 0.9208
+  - Recall:    0.9159
+  - F1-Score:  0.9184
+
+FUTURE ENHANCEMENT:
+----------------------------------------------------------------------
+  BERT Multilingual Embeddings can be integrated for improved
+  semantic understanding (requires GPU for practical training time).

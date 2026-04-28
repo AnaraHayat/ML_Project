@@ -8,4 +8,9 @@ transformers
 torch
 joblib
 scipy
-streamlit
+reportlab
+pillow
+fastapi
+uvicorn
+python-multipart
+lime
